@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PiGuardian Home Security System</title>
+    <style>
+        body {
+            background-color: #333333;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .header-text {
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+        .user-welcome {
+            text-align: center;
+            font-size: 20px;
+            margin: 20px auto;
+        }
+        .logout-btn {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 20px;
+        }
+        .center-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 40px; /* Adjust this value as needed to prevent overlap */
+        }
+        button {
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: #0056b3; /* Slightly darker blue */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-text">Welcome to PiGuardian Home Security System</div>
+    <div class="user-welcome">
+        Welcome {{name}}!
+    </div>
+    <button class="logout-btn" onclick="window.location.href='/'">Logout</button>
+    
+    <div class="center-buttons">
+        <button onclick="window.location.href='/door_lock_status'">Door lock status</button>
+        <button onclick="window.location.href='/view_recorded_videos'">View recorded videos</button>
+        <button onclick="window.location.href='/register_face_screen'">Register face</button>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Face</title>
+    <style>
+        body {
+            background-color: #333333;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+        }
+        input[type="text"] {
+            margin: 10px 0;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: #0056b3; /* Slightly darker blue */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <label for="name" style="font-size: 24px;">Name:</label>
+    <input type="text" id="name" name="name" title="name" style="width: 50%;">
+    <br>
+    <button onclick="registerFace()">Register Face</button>
+</div>
+
+<script>
+    function registerFace() {
+    var username = document.getElementById("name").value;
+    if(username) {
+        var targetUrl = window.location.origin + "/register_face/" + encodeURIComponent(username) + "/";
+        fetch(targetUrl, {
+            method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username: username })
+        }).then(response => {
+            if(response.ok) {
+                // Redirect to a new page
+                window.location.href = targetUrl;
+            } else {
+                // Handle error
+                console.error('Failed to register');
+            }
+        }).catch(error => {
+            console.error('Error:', error);
+        });
+    } else {
+        alert("Please enter a name.");
+    }
+}
+
+    </script>
+    
+</body>
+</html>

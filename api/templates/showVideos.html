@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recorded Videos</title>
+    <style>
+        body {
+            background-color: #333333;
+            color: #ffffff; /* Adjusts text color for better visibility on the dark background */
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+        }
+        video {
+            margin: 20px 0; /* Adds some space above and below each video */
+        }
+    </style>
+</head>
+<body>
+    <h1>Recorded Videos</h1>
+    {% for video_url in video_urls %}
+        <div>
+            <video width="320" height="240" controls>
+                <source src="{{ video_url }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    {% endfor %}
+</body>
+</html>

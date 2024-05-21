@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Door Lock Status</title>
+    <style>
+        body {
+            background-color: #333333;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+        .status-text {
+            font-size: 24px;
+            color: white; /* Default color */
+        }
+        .status-value {
+            font-size: 24px;
+            /* Color set by class */
+        }
+        .unlocked {
+            color: green;
+        }
+        .locked {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div class="status-text">The Door Lock Status Is:</div>
+<!-- Use Jinja2 templating to dynamically set the class based on the status -->
+<div id="status" class="status-value {{ 'unlocked' if status else 'locked' }}">
+    {{ "Unlocked" if status else "Locked" }}
+</div>
+
+</body>
+</html>
